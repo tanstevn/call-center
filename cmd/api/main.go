@@ -6,14 +6,14 @@ import (
 	"strconv"
 
 	"call-center/api"
-	constants "call-center/internal/shared"
+	"call-center/internal/shared/constants"
 
 	"github.com/go-chi/chi"
 )
 
 func main() {
 	router := chi.NewRouter()
-	app := api.RoutesHandler(router)
+	app := api.MapRoutes(router)
 
 	fmt.Println("Starting GO Call Center API...")
 
