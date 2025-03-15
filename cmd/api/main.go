@@ -1,21 +1,35 @@
 package main
 
 import (
-	"call-center/api"
 	"fmt"
 	"net/http"
+	"strconv"
+
+	"call-center/api"
+	constants "call-center/internal/shared"
 
 	"github.com/go-chi/chi"
 )
 
 func main() {
-	app := chi.NewRouter()
+	router := chi.NewRouter()
+	app := api.RoutesHandler(router)
 
-	api.RoutesHandler(app)
+	fmt.Println("Starting GO Call Center API...")
 
-	err := http.ListenAndServe("localhost:8000", app)
+	server := &http.Server{
+		Addr:         ":" + strconv.Itoa(constants.Port),
+		Handler:      app,
+		IdleTimeout:  constants.IdleTimeout,
+		ReadTimeout:  constants.ReadTimeout,
+		WriteTimeout: constants.WriteTimeout,
+	}
+
+	err := server.ListenAndServe()
 
 	if err != nil {
-		fmt.Println(err.Error())
+		fmt.Println("Failed to start GO Call Center API server...")
 	}
+
+	fmt.Println("GO Call Center API server is now running! 🚀")
 }

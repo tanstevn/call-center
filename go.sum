@@ -1,2 +1,4 @@
 github.com/go-chi/chi v1.5.5 h1:vOB/HbEMt9QqBqErz07QehcOKHaWFtuj87tTDVz2qXE=
 github.com/go-chi/chi v1.5.5/go.mod h1:C9JqLr3tIYjDOZpzn+BCuxY8z8vmca43EeMgyZt7irw=
+github.com/ssengalanto/midt v1.2.0 h1:VEQ0hlPq7RO5O+TnPdq8A1tM61PswIj9zRWlb7Ap4Xw=
+github.com/ssengalanto/midt v1.2.0/go.mod h1:EF/peNtWfjJdSa11husmzWMzzW+4hAd9iBT+NuuW/kY=
