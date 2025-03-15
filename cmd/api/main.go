@@ -30,6 +30,4 @@ func main() {
 	if err != nil {
 		fmt.Println("Failed to start GO Call Center API server...")
 	}
-
-	fmt.Println("GO Call Center API server is now running! 🚀")
 }
