@@ -1,3 +1,7 @@
 package entities
 
-type Call struct{}
+import "github.com/google/uuid"
+
+type Call struct {
+	Id uuid.UUID
+}

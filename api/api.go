@@ -1,7 +1,7 @@
 package api
 
 import (
-	"call-center/api/routes"
+	routesV1 "call-center/api/routes/v1"
 
 	"github.com/go-chi/chi"
 	middle "github.com/go-chi/chi/middleware"
@@ -12,8 +12,8 @@ func MapRoutes(router *chi.Mux) *chi.Mux {
 
 	router.Route("/api", func(api chi.Router) {
 		api.Route("/v1", func(v1 chi.Router) {
-			v1.Route("/call", routes.MapCallRoutes)
-			v1.Route("/user", routes.MapUserRoutes)
+			v1.Route("/call", routesV1.MapCallRoutes)
+			v1.Route("/user", routesV1.MapUserRoutes)
 		})
 	})
 
