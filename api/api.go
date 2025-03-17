@@ -13,7 +13,6 @@ func MapRoutes(router *chi.Mux) *chi.Mux {
 	router.Route("/api", func(api chi.Router) {
 		api.Route("/v1", func(v1 chi.Router) {
 			v1.Route("/call", routesV1.MapCallRoutes)
-			v1.Route("/user", routesV1.MapUserRoutes)
 		})
 	})
 

@@ -1,7 +1,6 @@
 package v1
 
 import (
-	"fmt"
 	"net/http"
 )
 
@@ -12,7 +11,7 @@ func NewUserController() *UserController {
 }
 
 func (uc *UserController) GetUserList() http.HandlerFunc {
-	fmt.Println("UserController - GetUserList()")
+	// fmt.Println("UserController - GetUserList()")
 
 	// call mediator here
 

@@ -1,7 +1,13 @@
 package entities
 
-import "github.com/google/uuid"
+import (
+	"time"
+
+	"github.com/google/uuid"
+)
 
 type Call struct {
-	Id uuid.UUID
+	Id              uuid.UUID
+	CallingUserId   uuid.UUID
+	DateCallStarted time.Time
 }

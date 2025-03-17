@@ -8,13 +8,12 @@ import (
 	"time"
 
 	"github.com/google/uuid"
-	mediator "github.com/mehdihadeli/go-mediatr"
+	"github.com/mehdihadeli/go-mediatr"
 )
 
 type CallController struct{}
 
 func NewCallController() *CallController {
-	fmt.Println("CallController - NewCallController()")
 	return &CallController{}
 }
 
@@ -23,10 +22,10 @@ func (cc *CallController) CreateCall() http.HandlerFunc {
 		fmt.Println("CallController - CreateCall()")
 
 		command := commands.NewCreateCallCommand(uuid.New(), time.Now().UTC())
-		result, err := mediator.Send[*commands.CreateCallCommand, commands.CreateCallResult](request.Context(), command)
+		result, err := mediatr.Send[*commands.CreateCallCommand, *commands.CreateCallResult](request.Context(), command)
 
 		if err != nil {
-
+			fmt.Println(err.Error())
 		}
 
 		writer.Header().Set("Content-Type", "application/json")
@@ -38,8 +37,6 @@ func (cc *CallController) CreateCall() http.HandlerFunc {
 
 func (cc *CallController) GetCallList() http.HandlerFunc {
 	return func(writer http.ResponseWriter, request *http.Request) {
-		fmt.Println("CallController - GetCallList()")
 
-		// call mediator here
 	}
 }

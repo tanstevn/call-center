@@ -35,22 +35,16 @@ func NewCreateCallCommandHandler(repository *repositories.CallRepository) *Creat
 }
 
 func (handler *CreateCallCommandHandler) Handle(ctx context.Context, request *CreateCallCommand) (*CreateCallResult, error) {
-	isLoggerPipelineEnabled := ctx.Value("logger_pipeline").(bool)
-
-	if isLoggerPipelineEnabled {
-		fmt.Printf("[%T]: logging pipeline is enabled", handler)
-	}
-
-	call := entities.Call{}
-	response, err := handler.repository.CreateCall(ctx, &call)
+	call := &entities.Call{}
+	createdCall, err := handler.repository.CreateCall(ctx, call)
 
 	if err != nil {
-		return nil, err
+		fmt.Println(err.Error())
 	}
 
-	result := CreateCallResult{
-		Id: response.Id,
+	response := &CreateCallResult{
+		Id: createdCall.Id,
 	}
 
-	return &result, nil
+	return response, nil
 }

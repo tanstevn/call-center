@@ -15,8 +15,6 @@ func NewCallRepository() *CallRepository {
 }
 
 func (callRepo *CallRepository) CreateCall(context context.Context, call *entities.Call) (*entities.Call, error) {
-	callResult := entities.Call{
-		Id: uuid.New(),
-	}
-	return &callResult, nil
+	call.Id = uuid.New()
+	return call, nil
 }
