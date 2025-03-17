@@ -21,7 +21,7 @@
 go.work
 go.work.sum
 
-internal/cmd/api/tmp/
+cmd/api/tmp/
 
 # env file
 .env
